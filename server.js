@@ -60,13 +60,16 @@ var htmltemplate =`
     </body>
 </html>
 `;
+return htmlTemplate;
+
 }
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 app.get('/Article-one',function(req,res){
-    res.sendFile(path.join(__dirname,'ui','articleone.html'));
+    res.send(createTemplate(Articleone));
+    
 });
 app.get('/Article-two',function(req,res){
    res.sendFile(path.join(__dirname,'ui','articletwo.html'));
