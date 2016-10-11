@@ -5,6 +5,58 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+
+var Articleone={
+    title:'Article One | Monish Poojari',
+    heading:'Article One',
+    date:'sep 5 2016',
+    content:`
+            <p>
+                This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....
+            </p> 
+            <p>
+                This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....
+            </p>
+            <p>
+                This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....This is My First article Displayed....
+            </p>
+    
+    `,
+    
+};
+
+var htmltemplate =`
+    <html>
+    <head>
+        <title>
+            ${title}
+        </title>
+        <link href="/ui/style.css" rel="stylesheet" />
+     
+    </head>
+
+    <body>
+        <div class="container">
+        
+        <div>
+            <a href="/">Home</a>
+        </div>
+        <hr/>
+        <h3>
+           ${heading}
+        </h3>
+        <div>
+            Sept18,2016
+        </div>
+        <div> 
+            ${content}
+        </div>
+    </div>
+    </body>
+</html>
+`;
+
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
