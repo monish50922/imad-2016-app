@@ -3,5 +3,7 @@ console.log('Loaded!');
 
 var img = document.getElementById('madi')
 img.onclick=function(){
-    img.style.marginLeft='100px';
+    //img.style.marginLeft='100px';
+    var interval=setInterval(moveRight,100 );
+    
 }
