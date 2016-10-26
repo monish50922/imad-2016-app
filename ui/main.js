@@ -23,14 +23,30 @@ var button=document.getElementById('counter');
 var counter = 0;
 
 button.onclick=function (){
-    //make a request for counter end point
+    //Creating a Request Object
+    var request=new XmlHttpRequest();
+    request.onreadystate=function(){
+    if(request.readystate==XmlHttpRequest.DONE){
+        //Take someactio
+    }
+     if(request.Status==200){
+         var counter=request.responsetext;
+         var span=document.getElementById('count');
+         spaninnerHTML=counter.tostring();
+         
+     }  
+     
+    };
+    //Make Request
+    request.open('GET','http://monish50922.imad.hasura-app.io/counter',true);
+    request.send(null);
     
-    //capture the response and store it in a variabe
+    
     
     //render the variable in a correct span
-    counter =counter +1 ;
-    var span=document.getElementById('count');
-    span.innerHTML=counter.toString();
+    ///counter =counter +1 ;
+    //var span=document.getElementById('count');
+    //span.innerHTML=counter.toString();
     
     
 };
