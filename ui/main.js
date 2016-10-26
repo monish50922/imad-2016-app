@@ -24,9 +24,9 @@ var counter = 0;
 
 button.onclick=function (){
     //Creating a Request Object
-    var request=new XmlHttpRequest();
+    var request=new XMLHttpRequest();
     request.onreadystate=function(){
-    if(request.readystate==XmlHttpRequest.DONE){
+    if(request.readystate==XMLHttpRequest.DONE){
         //Take someactio
     }
      if(request.Status==200){
