@@ -20,7 +20,7 @@
 
 //counter Code
 var button=document.getElementById('counter');
-var counter = 0;
+//var counter = 0;
 
 button.onclick=function (){
     //Creating a Request Object
