@@ -5,33 +5,46 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-});
-var counter=0;
-app.get('/counter',function(req,res){
-    counter=counter + 1;
-    res.send(counter.toString());
-});
-
-app.get('/:Articlename',function(req,res){
-    //Articlename=Article-one
-    var Articlename = req.params.Articlename;
-    res.send(createTemplate(articles[Articlename]));
+function createTemplate(data){
+    var title=data.title;
+    var date=data.date;
+    var heading=data.heading;
+    var content=data.content;
     
-});
+var htmltemplate =`
+    <html>
+    <head>
+        <title>
+            ${title}
+        </title>
+        <link href="/ui/style.css" rel="stylesheet" />
+     
+    </head>
 
-app.get('/ui/style.css', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'style.css'));
-});
+    <body>
+        <div class="container">
+        
+        <div>
+            <a href="/">Home</a>
+        </div>
+        <hr/>
+        <h3>
+           ${heading}
+        </h3>
+        <div>
+            Sept18,2016
+        </div>
+        <div> 
+            ${content}
+        </div>
+    </div>
+    </body>
+</html>
+`;
+return htmltemplate;
 
-app.get('/ui/main.js', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'main.js'));
-});
+}
 
-app.get('/ui/madi.png', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
-});
 
 var articles={
     'Article-one':{
@@ -91,47 +104,34 @@ var articles={
     }
     
 };
-function createTemplate(data){
-    var title=data.title;
-    var date=data.date;
-    var heading=data.heading;
-    var content=data.content;
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+var counter=0;
+app.get('/counter',function(req,res){
+    counter=counter + 1;
+    res.send(counter.toString());
+});
+
+app.get('/:Articlename',function(req,res){
+    //Articlename=Article-one
+    var Articlename = req.params.Articlename;
+    res.send(createTemplate(articles[Articlename]));
     
-var htmltemplate =`
-    <html>
-    <head>
-        <title>
-            ${title}
-        </title>
-        <link href="/ui/style.css" rel="stylesheet" />
-     
-    </head>
+});
 
-    <body>
-        <div class="container">
-        
-        <div>
-            <a href="/">Home</a>
-        </div>
-        <hr/>
-        <h3>
-           ${heading}
-        </h3>
-        <div>
-            Sept18,2016
-        </div>
-        <div> 
-            ${content}
-        </div>
-    </div>
-    </body>
-</html>
-`;
-return htmltemplate;
+app.get('/ui/style.css', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'style.css'));
+});
 
-}
+app.get('/ui/main.js', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'main.js'));
+});
 
-
+app.get('/ui/madi.png', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
+});
 
 
 
