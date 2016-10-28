@@ -28,13 +28,13 @@ button.onclick=function (){
     request.onreadystate=function(){
     if(request.readystate==XMLHttpRequest.DONE){
         //Take someactio
-    }
      if(request.Status==200){
          var counter=request.responseText;
          var span=document.getElementById('count');
          spaninnerHTML=counter.toString();
          
      }  
+    }
      
     };
     //Make Request
