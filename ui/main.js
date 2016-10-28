@@ -22,11 +22,12 @@
 var button=document.getElementById('counter');
 //var counter = 0;
 
-button.onclick=function (){
+button.onclick = function (){
     //Creating a Request Object
     var request=new XMLHttpRequest();
-    request.onreadystate=function(){
-    if(request.readystate==XMLHttpRequest.DONE){
+    
+    request.onreadystate = function(){
+    if(request.readyState==XMLHttpRequest.DONE){
         //Take someactio
      if(request.Status==200){
          var counter=request.responseText;
