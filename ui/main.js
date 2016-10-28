@@ -30,9 +30,9 @@ button.onclick = function (){
     if(request.readyState === XMLHttpRequest.DONE){
         //Take someactio
      if(request.Status === 200){
-         var counter=request.responseText;
-         var span=document.getElementById('count');
-         spaninnerHTML=counter.toString();
+         var counter = request.responseText;
+         var span = document.getElementById('count');
+         spaninnerHTML = counter.toString();
          
      }  
     }
@@ -40,7 +40,7 @@ button.onclick = function (){
     };
     //Make Request
     request.open('GET','http://monish50922.imad.hasura-app.io/counter',true);
-    request.send(null);
+   // request.send(null);
     
     
     
