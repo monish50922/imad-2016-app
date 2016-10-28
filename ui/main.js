@@ -32,7 +32,7 @@ button.onclick=function (){
      if(request.Status==200){
          var counter=request.responsetext;
          var span=document.getElementById('count');
-         spaninnerHTML=counter.tostring();
+         spaninnerHTML=counter.toString();
          
      }  
      
