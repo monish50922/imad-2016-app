@@ -40,7 +40,7 @@ button.onclick = function (){
     };
     //Make Request
     request.open('GET','http://monish50922.imad.hasura-app.io/counter',true);
-   // request.send(null);
+    request.send(null);
     
     
     
