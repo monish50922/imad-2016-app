@@ -26,8 +26,6 @@ button.onclick = function (){
     
     //Creating a Request Object
       var request = new XMLHttpRequest();
-    request.open('GET','http://monish50922.imad.hasura-app.io/counter',true);
-    request.send(null);
     
         request.onreadystate = function(){
         if(request.readyState == XMLHttpRequest.DONE){
@@ -36,7 +34,7 @@ button.onclick = function (){
        
          
          var counter = request.responseText;
-            var span = document.getElementById('count');
+            var span = document.getElementById("count");
          span.innerHTML=counter.toString();
        
     
@@ -45,6 +43,8 @@ button.onclick = function (){
       
     };
     //Make Request
+    request.open('GET','http://monish50922.imad.hasura-app.io/counter',true);
+    request.send(null);
     
     
     
