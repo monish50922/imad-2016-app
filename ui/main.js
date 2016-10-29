@@ -23,8 +23,11 @@ var button=document.getElementById('counter');
 var counter = 0;
 
 button.onclick = function (){
+    
     //Creating a Request Object
       var request = new XMLHttpRequest();
+    request.open('GET','http://monish50922.imad.hasura-app.io/counter',true);
+    request.send(null);
     
         request.onreadystate = function(){
         if(request.readyState == XMLHttpRequest.DONE){
@@ -43,8 +46,6 @@ button.onclick = function (){
     };
     //Make Request
     
-    request.open('GET','http://monish50922.imad.hasura-app.io/counter',true);
-    request.send(null);
     
     
     //render the variable in a correct span
