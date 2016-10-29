@@ -35,8 +35,7 @@ button.onclick = function (){
          var counter = request.responseText;
             var span = document.getElementById('count');
          span.innerHTML=counter.toString();
-         request.open('GET','http://monish50922.imad.hasura-app.io/counter',true);
-    request.send(null);
+       
     
      }  
     }
@@ -44,6 +43,8 @@ button.onclick = function (){
     };
     //Make Request
     
+    request.open('GET','http://monish50922.imad.hasura-app.io/counter',true);
+    request.send(null);
     
     
     //render the variable in a correct span
