@@ -24,26 +24,25 @@ var counter = 0;
 
 button.onclick = function (){
     //Creating a Request Object
-  //  var request=new XMLHttpRequest();
+      var request = new XMLHttpRequest();
     
-    //request.onreadystate = function(){
-    //if(request.readyState === XMLHttpRequest.DONE){
+        request.onreadystate = function(){
+        if(request.readyState === XMLHttpRequest.DONE){
         //Take someactio
-     //if(request.Status === 200){
+     if(request.Status === 200){
        
          
-       //  var counter = request.responseText;
-         
-         
-     //}  
-    //}
-        counter = counter+1;
-         var span = document.getElementById('count');
+         var counter = request.responseText;
+            var span = document.getElementById('count');
          span.innerHTML=counter.toString();
+         
+     }  
+    }
+      
     };
     //Make Request
-   // request.open('GET','http://monish50922.imad.hasura-app.io/counter',true);
-   // request.send(null);
+    request.open('GET','http://monish50922.imad.hasura-app.io/counter',true);
+    request.send(null);
     
     
     
@@ -53,5 +52,5 @@ button.onclick = function (){
     //span.innerHTML=counter.toString();
     
     
-//};
+};
 
