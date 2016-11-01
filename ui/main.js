@@ -64,14 +64,35 @@ var submit = document.getElementById('submitbtn');
 submit.onclick=function(){
     //MAke the request to server and send name 
     //capture the list of names and render it as a list 
-    var names=['name1','name2','name3','name4'];
-    var list='';
+    //Creating a Request Object
+      var request = new XMLHttpRequest();
+    
+        request.onreadystate = function(){
+        if(request.readyState == XMLHttpRequest.DONE){
+        //Take someactio
+     if(request.Status == 200){
+       
+        var names= request.responseText;
+        names=JSON.parse(names);
+        
+        var list='';
     for (var i=0;i<names.length;i++){
         list+='<li>'+names[i]+ '</li>';
         
     }
     var ul=document.getElementById('namelist');
     ul.innerHTML = list;
+       
+    
+     }  
+    }
+      
+    };
+    //Make Request
+    request.open('GET','http://monish50922.imad.hasura-app.io/submit?=name='+name,true);
+    request.send(null);
+    
+    
     
 };
 
